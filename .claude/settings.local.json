@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Read(/C:\\AGICON\\BDMedia/**)",
+      "Read(/C:\\AGICON\\BDMedia/**)",
+      "Read(/C:\\AGICON\\BDMedia/**)",
+      "Read(/C:\\AGICON\\BDMedia/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

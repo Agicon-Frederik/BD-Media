@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>BD Media Route splitter</h1>
+        <p>
+          Upload the CSV file for a route, fill in the form and let us calculate
+        </p>
+      </header>
+
+      <main>
+        <section class="upload-section">
+          <input type="file" id="csvFile" accept=".csv" />
+          <label for="csvFile" class="upload-btn">Choose CSV File</label>
+        </section>
+
+        <section
+          class="results-section"
+          id="resultsSection"
+          style="display: none"
+        >
+          <div class="file-info">
+            <h2>File Information</h2>
+            <div id="fileInfo"></div>
+          </div>
+
+          <div class="notes-analysis">
+            <h2>Notes Analysis</h2>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3>Total Stops</h3>
+                <span id="totalRecords">0</span>
+              </div>
+              <div class="stat-card">
+                <h3>Number of different Newspapers</h3>
+                <span id="uniqueNotes">0</span>
+              </div>
+            </div>
+
+            <div class="notes-list">
+              <h3>List and number of papers</h3>
+              <div id="notesList"></div>
+            </div>
+          </div>
+
+          <div class="driver-form">
+            <h2>Driver Information</h2>
+            <form id="driverForm">
+              <div class="form-group">
+                <label for="originalDriver">Name original driver:</label>
+                <input
+                  type="text"
+                  id="originalDriver"
+                  name="originalDriver"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="helperName">Name Helper:</label>
+                <input type="text" id="helperName" name="helperName" required />
+              </div>
+
+              <div class="form-group">
+                <label for="papersToTake">Number of papers to take:</label>
+                <input
+                  type="number"
+                  id="papersToTake"
+                  name="papersToTake"
+                  min="1"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="submit-btn">Calculate</button>
+            </form>
+
+            <div
+              id="driverResult"
+              class="driver-result"
+              style="display: none"
+            ></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
