@@ -24,12 +24,27 @@ class CSVAnalyzer {
         var _a;
         const target = event.target;
         const file = (_a = target.files) === null || _a === void 0 ? void 0 : _a[0];
-        if (file && file.type === 'text/csv') {
+        if (file && this.isValidCSVFile(file)) {
             this.readCSVFile(file);
         }
         else {
             alert('Please select a valid CSV file.');
         }
+    }
+    isValidCSVFile(file) {
+        // Check file extension
+        const fileName = file.name.toLowerCase();
+        const hasCSVExtension = fileName.endsWith('.csv');
+        // Check MIME type (be flexible as different servers may serve different types)
+        const validMimeTypes = [
+            'text/csv',
+            'text/plain',
+            'application/csv',
+            'application/vnd.ms-excel',
+            '' // Some servers don't set MIME type
+        ];
+        const hasSupportedMimeType = validMimeTypes.includes(file.type);
+        return hasCSVExtension && (hasSupportedMimeType || file.type === '');
     }
     readCSVFile(file) {
         const reader = new FileReader();
